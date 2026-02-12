@@ -81,7 +81,7 @@ def find_large_files(directory, min_size):
 def get_python_files(directory):
     """
     Находит все .py файлы.
-    Используй filter_by и get_extension
+    Используй filter_by и get_extensionю
     """
     files = get_files(directory)
     py_files = filter_by(lambda f: get_extension(f) == "py", files)
