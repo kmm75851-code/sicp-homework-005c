@@ -33,7 +33,10 @@ def apply_to_all(f, items):
     >>> apply_to_all(lambda x: x * 2, [1, 2, 3])
     [2, 4, 6]
     """
-    pass
+    spisok = []
+    for item in items:
+        spisok.append(f(item))
+    return spisok
 
 
 # === ЗАДАНИЕ 2: filter_by ===
@@ -45,7 +48,11 @@ def filter_by(predicate, items):
     >>> filter_by(lambda x: x > 0, [-1, 2, -3, 4])
     [2, 4]
     """
-    pass
+    spisok = []
+    for i in items:
+        if predicate(i) == True:
+            spisok.append(i)
+    return spisok
 
 
 # === ЗАДАНИЕ 3: compose ===
@@ -57,7 +64,9 @@ def compose(f, g):
     >>> compose(lambda x: x * 2, lambda x: x + 1)(5)
     12
     """
-    pass
+    def h(x):
+        return f(g(x))
+    return h 
 
 
 # === ЗАДАНИЕ 4: Практика с файлами ===
@@ -68,7 +77,7 @@ def find_large_files(directory, min_size):
     Используй filter_by и get_file_size.
     """
     files = get_files(directory)
-    pass
+    return filter_by(lambda a: get_file_size(os.path.join(directory, a)) > min_size,files)
 
 
 def get_python_files(directory):
@@ -77,7 +86,8 @@ def get_python_files(directory):
     Используй filter_by и get_extension.
     """
     files = get_files(directory)
-    pass
+    return filter_by(lambda a: get_extension(a) == 'py', files)
+    
 
 
 def get_file_sizes(directory):
@@ -86,7 +96,13 @@ def get_file_sizes(directory):
     Используй apply_to_all.
     """
     files = get_files(directory)
-    pass
+    size = list(apply_to_all(lambda a: get_file_size(a,directory), files))
+    file_info = []
+    for i in range(len(files)):
+        file_info.append((files[i], size[i]))
+    return file_info
+
+    
 
 
 # === БОНУС: make_file_filter ===
