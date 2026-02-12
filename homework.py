@@ -113,6 +113,15 @@ def make_file_filter(extension):
     
     >>> py_filter = make_file_filter("py")
     >>> py_filter("main.py")
-    True
+    True.
     """
-    pass
+    def h(x):
+        if get_extension(x) == extension:
+            return True
+        else:
+            return False
+    return h 
+       
+    
+    
+    
