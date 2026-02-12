@@ -93,7 +93,7 @@ def get_python_files(directory):
 def get_file_sizes(directory):
     """
     Возвращает список кортежей (filename, size).
-    Используй apply_to_all.
+    Используй apply_to_all
     """
     files = get_files(directory)
     size = list(apply_to_all(lambda a: get_file_size(a,directory), files))
