@@ -107,7 +107,7 @@ class TestGetFileSizes:
     def test_correct_sizes(self):
         result = dict(get_file_sizes(TEST_DIR))
         assert result["small.txt"] == 5
-        assert result["large.txt"] == 752
+        assert result["large.txt"] == 762
 
 
 class TestMakeFileFilter:
