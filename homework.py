@@ -77,8 +77,7 @@ def find_large_files(directory, min_size):
     Используй filter_by и get_file_size.
     """
     files = get_files(directory)
-    return filter_by(lambda a: get_file_size(os.path.join(directory, a)) > min_size,files)
-
+    return filter_by(lambda a: get_file_size(a , directory) > min_size,files)
 
 def get_python_files(directory):
     """
@@ -116,10 +115,7 @@ def make_file_filter(extension):
     True.
     """
     def h(x):
-        if get_extension(x) == extension:
-            return True
-        else:
-            return False
+        return get_extension(x) == extension
     return h 
        
     
