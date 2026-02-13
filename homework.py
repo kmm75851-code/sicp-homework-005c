@@ -77,7 +77,8 @@ def find_large_files(directory, min_size):
     Используй filter_by и get_file_size.
     """
     files = get_files(directory)
-    return filter_by(lambda a: get_file_size(os.path.join(directory, a)) > min_size,files)
+    return filter_by(lambda a: get_file_size(a , directory) > min_size,files)
+
 def get_python_files(directory):
     """
     Находит все .py файлы.
